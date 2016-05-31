@@ -1,0 +1,36 @@
+
+<!--<ion-slide-box does-continue="true" auto-play="true" show-pager="true" style="height:100%; width:100%; ">-->
+  <!--<ion-slide>-->
+    <!--<img src="img/guidepage/1.png">-->
+  <!--</ion-slide>-->
+  <!--<ion-slide>-->
+    <!--<img src="img/guidepage/2.png">-->
+  <!--</ion-slide>-->
+  <!--<ion-slide>-->
+    <!--<img src="img/guidepage/3.png">-->
+  <!--</ion-slide>-->
+<!--</ion-slide-box>-->
+
+
+
+<ion-slide-box does-continue="true" auto-play="true" show-pager="true" id="photos">
+  <ion-slide>
+    <img style="height: 100%;width: 100%" src="img/guidepage/1.png" >
+  </ion-slide >
+  <ion-slide >
+    <img style="height: 100%;width: 100%" src="img/guidepage/2.png">
+  </ion-slide>
+  <ion-slide >
+    <img style="height: 100%;width: 100%" src="img/guidepage/3.png">
+  </ion-slide>
+</ion-slide-box>
+<script type="text/javascript">
+  //获取社保高度
+  var height = $(window).height();
+  var width = $(window).width();
+  //自适应
+  //自适应
+  $("#photos").css('height', height);
+  $("#photos").css('width', width);
+</script>
+
