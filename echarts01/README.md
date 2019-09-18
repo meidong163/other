@@ -1,7 +1,9 @@
 1.  #### **创建项目**
 
 > vue init webpack-simple echarts
+
 > npm install
+
 > npm run dev
 
 2.  #### 安装eCharts
