@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>01路由的基本使用</title>
+	<link rel="stylesheet" href="">
+	<!-- 1. 引入路由包 -->
+	<script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- 路由指向 -->
+		<router-link to="/login/zhangsan/40">登陆</router-link>
+        <router-link to="/register">注册</router-link>
+        <!-- 路由坑位 -->
+        <router-view></router-view>
+	</div>
+<script>
+
+	//创建页面 template模版组件 vue的 用来构建页面的对象
+	var loginView = {
+		template:'<h1>login----{{$route.params.id}}-----{{$route.params.name}}</h1>'
+	}
+
+	var registerView = {
+            template: '<h1>register</h1>'
+        }
+
+    // 创建路由对象
+    var router = new VueRouter({
+    	routes:[{
+    		path:'/',
+    		redirect:'/login'
+    	},
+    	{
+    		path:'/login/:id/:name',
+    		component:loginView
+    	},
+    	{
+    		path:'/register',
+    		component:registerView
+    	}
+    	]
+    });
+	// 2.创建一个vue对象
+	var vm = new Vue({
+		el:"#app",
+		data:{
+
+		},
+		method:{
+
+		},
+		// 在vue对象上配置router对象
+		router,
+
+	});
+</script>
+	
+</body>
+</html>
