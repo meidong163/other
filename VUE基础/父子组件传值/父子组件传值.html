@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>父子组件</title>
+	<link rel="stylesheet" href="">
+	<script src="lib/vue.js"></script>
+</head>
+<body>
+
+	<!-- 自己先实现一下，然后看效果 -->
+	<div id="app">
+		<div class="fa">
+			<h2>父组件</h2>
+			<input type="button" value="向子组件传递消息" name="父组件">
+			<h1>接受子组件的值:{{getSon}}</h1>
+		</div>
+		<son :propsmsg="msg" @func=getMsg></son>
+	</div>
+
+	<template id='tem'>
+		<div class="son">
+			<h2>子组件</h2> 
+
+			<h1>接收父组件的值 {{propsmsg}}</h1>
+
+			<input type="button" name="自组件" value="向父组件传递消息" @click='postDataFa'>
+		</div>
+
+	</template>
+
+	<script>
+		var son = {
+			template:"#tem",
+			data(){
+				return{
+					sonmesg:'天天向上',
+					id:""
+				}
+			},
+			methods:{
+				// 方法的参数传递到父组件
+
+				// 子组件给父组件传值，通过$emit()方法传递，参数怎么写？
+				postDataFa(){
+					this.$emit("func",this.sonmesg)
+				}
+			},
+			// 属性
+			props:['propsmsg']
+		}
+
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				id:"1",
+				msg:' :好好学习',
+				getSon:""
+			},
+			methods:{
+				getMsg(data){
+					this.getSon = data;
+					console.log(this.msg);
+				}
+			},
+			components:{
+				son
+			}
+
+		})
+	</script>
+</body>
+</html>
